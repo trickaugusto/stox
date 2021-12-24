@@ -1,0 +1,9 @@
+{% include 'template/header.twig' %}
+{% block header %}
+    <!-- Custom styles for login -->
+    <link href="{{app.url_public}}/css/signin.css" rel="stylesheet">
+{% endblock %}
+        <div class="container">
+            {% block content %}{% endblock %}
+        </div> <!-- /container -->
+{% include 'template/footer.twig' %}

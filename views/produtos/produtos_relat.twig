@@ -1,0 +1,25 @@
+{% extends 'template.twig' %}
+
+{% block content %}
+<div class="page-header">
+    <h3>Stox - Estoque</h3>
+</div>
+<table class="table table-striped table-bordered">
+    <tr>
+        <th>#</th>
+        <th>Produto</th>
+        <th>Descrição</th>
+        <th>Qtd Estoque</th>
+        <th>Fornecedor</th>
+    </tr>
+    {% for produto in produtos %}
+        <tr>
+            <td>{{produto.id}}</td>
+            <td>{{produto.produto}}</td>
+            <td>{{produto.descricao}}</td>
+            <td>{{produto.estoque}}</td>
+            <td>{{produto.fornecedor}}</td>
+        </tr>
+    {% endfor %}
+</table>
+{% endblock %}

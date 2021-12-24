@@ -1,0 +1,22 @@
+        <nav class="navbar navbar-default navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                        <span class="sr-only">Navegação</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="{{app.url_auth}}/home"><img src="{{app.url_public}}/treinaweb-index.png"></a>
+                </div>
+                <div id="navbar" class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav">
+                        <li {{app.html.urlActive('home')}}><a href="{{app.url_auth}}/home">Home</a></li>
+                        <li {{app.html.urlActive('produtos$')}}><a href="{{app.url_auth}}/produtos">Produtos</a></li>
+                        <li {{app.html.urlActive('cadastrar')}}><a href="{{app.url_auth}}/produtos/cadastrar">Cadastrar</a></li>
+                        <li {{app.html.urlActive('fornecedores')}}><a href="{{app.url_auth}}/fornecedores">Fornecedores</a></li>
+                        <li><a href="{{app.url_auth}}/logout">Sair</a></li>
+                    </ul>
+                </div><!--/.nav-collapse -->
+            </div>
+        </nav>

@@ -1,0 +1,46 @@
+{% extends 'template.twig' %}
+
+{% block content %}
+<div class="page-header">
+    <h3>Stox - Fornecedores</h3>
+</div>
+<h1>
+<a href="{{app.url_auth}}/fornecedores/add">
+    <span class="btn btn-default">Cadastrar</span>
+</a>
+</h1>
+    <p>
+        {% if app.my_session.has('error') %}
+            <div class="alert alert-danger" role="alert">
+                <span class="glyphicon glyphicon-exclamation-sign"></span>
+                <span class="sr-only">Erro:</span>
+                {{app.my_session.flash('error')}}
+            </div>
+        {% endif %}
+        {% if app.my_session.has('success') %}
+            <div class="alert alert-success" role="alert">
+                <span class="glyphicon glyphicon-exclamation-sign"></span>
+                <span class="sr-only">Sucesso: </span>
+                {{app.my_session.flash('success')}}
+            </div>
+        {% endif %}
+    </p>
+<table class="table table-striped">
+    <tr>
+        <th>#</th>
+        <th>Nome</th>
+        <th></th>
+    </tr>
+    {% for forn in fornecedores %}
+        <tr>
+            <td>{{forn.id}}</td>
+            <td>{{forn.nome}}</td>
+            <td>
+                <a href="{{app.url_auth}}/fornecedores/delete/{{forn.id}}">
+                    <span class="btn btn-danger">Excluir</span>
+                </a>
+            </td>
+        </tr>
+    {% endfor %}
+</table>
+{% endblock %}

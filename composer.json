@@ -1,0 +1,14 @@
+{
+    "name": "projeto/phpavancado",
+    "autoload" : {
+        "psr-4" : {
+            "Stox\\" : "stox/"
+        }
+    },
+    "require" : {
+        "silex/silex" : "~1.3",
+        "twig/twig" : "1.22.*",
+        "illuminate/database": "5.1.x",
+        "knplabs/knp-snappy": "^0.4.2"
+    }
+}

@@ -1,0 +1,62 @@
+{% extends 'template.twig' %}
+
+{% block content %}
+    {% if produto is not defined %}
+        {% set produto = null %}
+    {% endif %}
+    <div class="page-header">
+        <h3>
+            {% if produto is not null %} 
+                Alteração
+                {% set action='/produtos/update/' ~ produto.id %}
+            {% else %}
+                Cadastro
+                {% set action='/produtos/add' %}
+            {% endif %} 
+            de Produto
+        </h3>
+    </div>
+
+    <div class="row">
+        <div class="col-md-8">
+            <form class="form-horizontal" action="{{app.url_auth}}{{action}}" method="POST">
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">Produto:</label>
+                    <div class="col-sm-8">
+                        {{app.html.input('text', 'produto', produto, 'Nome')}}
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">Descrição:</label>
+                    <div class="col-sm-8">
+                        {{app.html.textarea('descricao', produto, 'Descrição')}}
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">Estoque:</label>
+                    <div class="col-sm-8">
+                        {{app.html.input('number', 'estoque', produto, 'Estoque')}}
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">Fornecedor:</label>
+                    <div class="col-sm-8">
+                        {{app.html.select('fornecedor_id', fornecedores, produto)}}
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-offset-2 col-sm-6">
+                        <button type="submit" class="btn btn-default">
+                            {% if produto is not null %} 
+                                Alterar
+                            {% else %}
+                                Cadastrar
+                            {% endif %}
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+{% endblock %}

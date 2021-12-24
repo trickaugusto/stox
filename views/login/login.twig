@@ -1,0 +1,24 @@
+{% extends 'login_template.twig' %}
+
+{% block content %}
+<div class="container">    
+    <form class="form-signin" action="{{app.url_base}}login/verify" method="POST">
+        <h2 class="form-signin-heading">Login - Stox</h2>
+        {% if app.my_session.has('error') %}
+        <div class="alert alert-danger">
+            {{app.my_session.flash('error')}}
+        </div>
+        {% endif %}
+        <label class="sr-only">Seu Email</label>
+        <input type="email" name="email" class="form-control" placeholder="Seu Email" required autofocus>
+        <label for="inputPassword" class="sr-only">Password</label>
+        <input type="password" name="senha" id="inputPassword" class="form-control" placeholder="Senha" required>
+        <input type="hidden" name="_token" value="{{token}}">
+        <button class="btn btn-lg btn-primary btn-block" type="submit">Logar</button>
+        <br />
+        <a href="{{app.url_base}}/login/cadastrar">
+            <span class="btn btn-lg btn-info btn-block">Cadastre-se</span>
+        </a>
+    </form>
+</div> <!-- /container -->
+{% endblock %}

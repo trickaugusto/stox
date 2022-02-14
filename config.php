@@ -20,4 +20,4 @@ define('URL_AUTH', 'http://127.0.0.1:8080/stox/auth');
 define('HOST', 'localhost');
 define('DB', 'stox');
 define('USER', 'root');
-define('PASS', 'oliveira.patrick900');
+define('PASS', '');
